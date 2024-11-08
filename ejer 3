@@ -1,0 +1,24 @@
+% Hechos sobre animales
+animal(gato).
+animal(pez).
+animal(pajaro).
+animal(perro).
+animal(cocodrilo).
+
+% Hechos adicionales
+animal(tortuga).
+animal(aguila).
+
+% Reglas para clasificar animales
+mamifero(X) :- member(X, [gato, perro]).
+ave(X) :- member(X, [pajaro, aguila]).
+reptil(X) :- member(X, [cocodrilo, tortuga]).
+puede_volar(X) :- ave(X).
+puede_nadar(X) :- member(X, [pez, cocodrilo, tortuga]).
+
+% Consultas
+% ¿Qué animales pueden volar?
+?- puede_volar(X).
+
+% ¿Qué animales pueden nadar?
+?- puede_nadar(X).
