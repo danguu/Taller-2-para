@@ -1,0 +1,18 @@
+% Hechos sobre la familia ficticia
+padre(john, mary).
+padre(john, susan).
+madre(anna, mary).
+madre(anna, susan).
+padre(michael, ann).
+madre(sarah, ann).
+
+% Añadimos 3 hechos más
+padre(john, tom).
+madre(anna, tom).
+padre(joseph, michael).
+
+% Reglas para definir relaciones complejas
+abuelo(X, Y) :- padre(X, Z), padre(Z, Y).
+abuelo(X, Y) :- padre(X, Z), madre(Z, Y).
+hermano(X, Y) :- padre(P, X), padre(P, Y), X \= Y.
+tio(X, Y) :- hermano(X, Z), (padre(Z, Y); madre(Z, Y)).
