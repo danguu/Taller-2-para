@@ -1,0 +1,8 @@
+% ¿Quién es abuelo de Ann?
+?- abuelo(X, ann).
+
+% ¿Quiénes son los hermanos de Susan?
+?- hermano(X, susan).
+
+% ¿Mary es madre de quién?
+?- madre(mary, X).
