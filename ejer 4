@@ -1,0 +1,23 @@
+% Hechos
+curso(introduccion_a_la_programacion).
+curso(estructuras_de_datos).
+curso(algoritmos).
+curso(programacion_avanzada).
+curso(sistemas_operativos).
+
+% Relación de prerequisitos
+prerequisito(estructuras_de_datos, introduccion_a_la_programacion).
+prerequisito(algoritmos, estructuras_de_datos).
+prerequisito(programacion_avanzada, algoritmos).
+prerequisito(sistemas_operativos, programacion_avanzada).
+
+% Reglas para determinar relaciones
+es_prerequisito(X, Y) :- prerequisito(X, Y).
+es_prerequisito(X, Y) :- prerequisito(X, Z), es_prerequisito(Z, Y).
+
+% Consultas
+% ¿Cuál es el prerequisito de algoritmos?
+?- prerequisito(X, algoritmos).
+
+% ¿Qué cursos necesitan como prerequisito introduccion_a_la_programacion?
+?- es_prerequisito(introduccion_a_la_programacion, X).
